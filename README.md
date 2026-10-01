@@ -1,0 +1,266 @@
+# CardioPredict – Heart Disease Prediction System
+
+CardioPredict is a machine learning-based web application designed to analyze patient health parameters and predict the likelihood of heart disease. The system combines a Flask backend with a React frontend to provide interactive predictions, data insights, model performance analysis, and visual dashboards.
+
+## Project Overview
+
+The application takes important health parameters such as age, sex, chest pain type, blood pressure, cholesterol, maximum heart rate, exercise-induced angina, and other clinical features as input.
+
+Machine learning models analyze these parameters and generate a heart disease prediction along with a risk category.
+
+## Key Features
+
+* Heart disease prediction using Machine Learning
+* Interactive patient prediction form
+* Risk classification: Low, Moderate, and High
+* Interactive health data dashboard
+* Dataset statistics and visualizations
+* Model performance comparison
+* Feature importance visualization
+* Prediction history
+* Health summary
+* Responsive and professional user interface
+* REST API using Flask
+* React-based frontend
+
+## Machine Learning Models
+
+The project uses:
+
+* Logistic Regression
+* Random Forest Classifier
+
+The dataset is divided into training and testing sets using an 80:20 split. Feature scaling is performed using StandardScaler before model training.
+
+## Dataset
+
+The dataset contains **1,025 patient records** with **13 health-related features** and one target variable.
+
+### Features
+
+* Age
+* Sex
+* Chest Pain Type (`cp`)
+* Resting Blood Pressure (`trestbps`)
+* Cholesterol (`chol`)
+* Fasting Blood Sugar (`fbs`)
+* Resting ECG (`restecg`)
+* Maximum Heart Rate (`thalach`)
+* Exercise-Induced Angina (`exang`)
+* ST Depression (`oldpeak`)
+* Slope
+* Number of Major Vessels (`ca`)
+* Thalassemia (`thal`)
+
+### Target
+
+* `0` – No Heart Disease
+* `1` – Heart Disease
+
+## Technology Stack
+
+### Frontend
+
+* React.js
+* Vite
+* JavaScript
+* Axios
+* React Router
+* Recharts
+* Lucide React
+* CSS
+
+### Backend
+
+* Python
+* Flask
+* Flask REST API
+* Scikit-learn
+* Pandas
+* NumPy
+* Joblib
+
+### Machine Learning
+
+* Logistic Regression
+* Random Forest
+* StandardScaler
+* Train-Test Split
+* Model Evaluation
+
+## Project Structure
+
+```text
+CardioPredict/
+│
+├── backend/
+│   ├── dataset/
+│   │   └── heart.csv
+│   │
+│   ├── preprocessing/
+│   │   └── preprocess.py
+│   │
+│   ├── analysis/
+│   │   ├── eda.py
+│   │   ├── statistics.py
+│   │   └── visualization_data.py
+│   │
+│   ├── models/
+│   │   ├── train_model.py
+│   │   └── model_comparison.py
+│   │
+│   ├── api/
+│   │   ├── app.py
+│   │   └── routes.py
+│   │
+│   ├── utils/
+│   │   ├── prediction.py
+│   │   └── data_loader.py
+│   │
+│   ├── tests/
+│   │   ├── test_prediction.py
+│   │   └── test_api.py
+│   │
+│   ├── requirements.txt
+│   └── README.md
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── charts/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── main.jsx
+│   └── package.json
+│
+├── .gitignore
+├── README.md
+└── vercel.json
+```
+
+## How the System Works
+
+```text
+Patient Health Parameters
+          ↓
+     React Frontend
+          ↓
+      Flask REST API
+          ↓
+   Data Preprocessing
+          ↓
+   Machine Learning Model
+          ↓
+   Prediction + Probability
+          ↓
+      Risk Category
+          ↓
+   Interactive Dashboard
+```
+
+## Dashboard
+
+The dashboard provides an overview of the dataset and machine learning results through interactive visualizations, including:
+
+* Heart disease distribution
+* Age distribution
+* Blood pressure analysis
+* Cholesterol analysis
+* Heart rate analysis
+* Model performance
+* Feature importance
+* Dataset statistics
+* Health insights
+
+## API Endpoints
+
+The Flask backend provides the following API endpoints:
+
+```text
+GET  /api/health
+GET  /api/statistics
+GET  /api/dataset
+GET  /api/model-performance
+GET  /api/feature-importance
+POST /api/predict
+```
+
+## Running the Project Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-github-repository-url>
+cd Case_study_1
+```
+
+### 2. Install Backend Dependencies
+
+```bash
+pip install -r backend/requirements.txt
+```
+
+### 3. Start the Backend
+
+```bash
+python -m backend.api.app
+```
+
+The Flask API will run on:
+
+```text
+http://127.0.0.1:5000
+```
+
+### 4. Start the Frontend
+
+Open another terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The React application will run on the Vite development server.
+
+## Model Evaluation
+
+The project evaluates the machine learning models using:
+
+* Accuracy
+* Precision
+* Recall
+* F1 Score
+* Confusion Matrix
+
+Model performance is displayed on the interactive dashboard for easier comparison and analysis.
+
+## Important Note
+
+This project is developed for educational and analytical purposes. The prediction generated by the system should not be considered a medical diagnosis. Users should consult qualified healthcare professionals for medical advice and diagnosis.
+
+## Future Enhancements
+
+* Deploy the complete application online
+* Add additional machine learning models
+* Improve model validation using cross-validation
+* Add user authentication
+* Store prediction history in a database
+* Add downloadable prediction reports
+* Improve mobile responsiveness
+
+## Author
+
+**Gauri Ingale**
+
+Data Science Student
+Prof. Ram Meghe College of Engineering and Management, Badnera
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star.
