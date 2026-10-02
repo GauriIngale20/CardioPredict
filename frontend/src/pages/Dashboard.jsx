@@ -33,7 +33,7 @@ import {
   getStatistics,
 } from "../services/api";
 
-import "./Dashboard.css";
+import "./dashboard.css";
 
 const PIE_COLORS = ["#e11d48", "#2563eb"];
 
