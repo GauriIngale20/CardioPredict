@@ -2,7 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-DATA_PATH = "backend/dataset/heart.csv"
+
+DATA_PATH = "dataset/heart.csv"
 
 
 def load_data():

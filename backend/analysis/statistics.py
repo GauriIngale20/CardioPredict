@@ -1,6 +1,7 @@
 import pandas as pd
 
-DATA_PATH = "backend/dataset/heart.csv"
+
+DATA_PATH = "dataset/heart.csv"
 
 
 def load_data():

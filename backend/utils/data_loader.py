@@ -1,7 +1,9 @@
+import os
 import pandas as pd
 
 
-DATASET_PATH = "backend/dataset/heart.csv"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATASET_PATH = os.path.join(BASE_DIR, "dataset", "heart.csv")
 
 
 def get_dataset():

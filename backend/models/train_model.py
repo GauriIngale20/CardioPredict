@@ -4,10 +4,10 @@ import joblib
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
-from backend.preprocessing.preprocess import preprocess_data, FEATURE_COLUMNS
+from preprocessing.preprocess import preprocess_data, FEATURE_COLUMNS
 
 
-MODEL_DIR = "backend/models"
+MODEL_DIR = "models"
 
 
 def train_models():

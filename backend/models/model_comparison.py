@@ -1,3 +1,4 @@
+import os
 import joblib
 
 from sklearn.metrics import (
@@ -8,7 +9,32 @@ from sklearn.metrics import (
     confusion_matrix
 )
 
-from backend.preprocessing.preprocess import preprocess_data
+
+try:
+    from backend.preprocessing.preprocess import preprocess_data
+except ModuleNotFoundError:
+    from preprocessing.preprocess import preprocess_data
+
+
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
+
+
+LOGISTIC_MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "models",
+    "logistic_regression.pkl"
+)
+
+
+RANDOM_FOREST_MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "models",
+    "random_forest.pkl"
+)
 
 
 def evaluate_model(model, X_test, y_test):
@@ -16,10 +42,26 @@ def evaluate_model(model, X_test, y_test):
     predictions = model.predict(X_test)
 
     return {
-        "accuracy": accuracy_score(y_test, predictions),
-        "precision": precision_score(y_test, predictions),
-        "recall": recall_score(y_test, predictions),
-        "f1_score": f1_score(y_test, predictions),
+        "accuracy": accuracy_score(
+            y_test,
+            predictions
+        ),
+
+        "precision": precision_score(
+            y_test,
+            predictions
+        ),
+
+        "recall": recall_score(
+            y_test,
+            predictions
+        ),
+
+        "f1_score": f1_score(
+            y_test,
+            predictions
+        ),
+
         "confusion_matrix": confusion_matrix(
             y_test,
             predictions
@@ -37,13 +79,16 @@ def compare_models():
         scaler
     ) = preprocess_data()
 
+
     logistic_model = joblib.load(
-        "backend/models/logistic_regression.pkl"
+        LOGISTIC_MODEL_PATH
     )
 
+
     random_forest_model = joblib.load(
-        "backend/models/random_forest.pkl"
+        RANDOM_FOREST_MODEL_PATH
     )
+
 
     logistic_results = evaluate_model(
         logistic_model,
@@ -51,23 +96,23 @@ def compare_models():
         y_test
     )
 
+
     random_forest_results = evaluate_model(
         random_forest_model,
         X_test,
         y_test
     )
 
-    print("\nLogistic Regression")
-    print(logistic_results)
-
-    print("\nRandom Forest")
-    print(random_forest_results)
 
     return {
         "Logistic Regression": logistic_results,
+
         "Random Forest": random_forest_results
     }
 
 
 if __name__ == "__main__":
-    compare_models()
+
+    results = compare_models()
+
+    print(results)
