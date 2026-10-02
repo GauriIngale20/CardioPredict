@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./pages/Dashboard.css";
+import "./pages/dashboard.css";
 
 import Home from "./pages/Home";
 import Prediction from "./pages/Prediction";
